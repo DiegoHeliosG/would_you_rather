@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import store from './store';
+import App from './components/App';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
+import reducer from './reducers';
+import middleware from './middleware';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducer, composeWithDevTools(middleware))
 
 ReactDOM.render(
   <Provider store={store}>
@@ -13,7 +18,12 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// todo: put non shared function in component
+// todo: convention html, css, js
+// todo: pass component as a property in question
+// todo: REST entity singular or plural?
+// todo: success answer: more votes or user answer?
+// todo: disable composeWithDevTools
+
+// todo: left aligned text in centered list item
+// todo: remove animation on menu
